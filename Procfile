@@ -1,0 +1,1 @@
+web: gunicorn StartVisor.wsgi --log-file -
