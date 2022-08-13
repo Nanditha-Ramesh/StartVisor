@@ -1,0 +1,26 @@
+<nav>
+	<button></button>
+	<div class="logo"><h1>Start<span>Visor</span></h1></div>
+	<div class="menu">
+		<ul>
+			<li><a href="{% url 'chat' %}">Chat</a></li>
+			<li><a href="#">Cuisine</a></li>
+			<li><a href="#">IT</a></li>
+			<li><a href="#">Criminals</a></li>
+			<li><a href="#">Reports</a></li>
+			{% if request.user.is_authenticated %}
+				<li><a href="{% url 'logout' %}">Logout</a></li>
+			{% else %}
+				<li><a href="{% url 'login' %}">Login</a></li>
+			{% endif %}
+		</ul>
+	</div>
+	<form action="">
+		<input type="text" id="search" placeholder="Search here...">
+		<i class="fa fa-search"></i>
+		<i class="fa fa-times"></i>
+	</form>
+	{% if request.user.is_authenticated %}
+		<h4 style="color:brown; margin-top: 30px; ">Hello {{request.user.first_name}}</h4>
+	{% endif %}
+</nav>
